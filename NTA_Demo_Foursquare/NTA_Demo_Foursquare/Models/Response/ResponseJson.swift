@@ -11,3 +11,15 @@ import Foundation
 struct ResponseJson <ResponseJson: Decodable> : Decodable {
     let response: ResponseJson
 }
+
+struct ResponseVenue : Decodable {
+    let minivenues: [VenueModel]
+}
+
+struct ResponseDetail : Decodable {
+    let venue: DetailModel
+}
+
+struct ResponseRecommend: Decodable {
+    let groups: [RecommendModel]
+}

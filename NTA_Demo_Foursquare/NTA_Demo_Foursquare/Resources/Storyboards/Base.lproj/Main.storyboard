@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Venue List-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Foursquare" customModuleProvider="target" sceneMemberID="viewController">
@@ -76,7 +76,7 @@
                             <constraint firstItem="BSP-6w-MJh" firstAttribute="top" secondItem="bzX-61-V1n" secondAttribute="bottom" id="pFo-eT-gUu"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="Ff6-4u-TJJ"/>
+                    <navigationItem key="navigationItem" title="Venue List" id="Ff6-4u-TJJ"/>
                     <connections>
                         <outlet property="searchBar" destination="bWW-pT-U55" id="3VA-Rv-7ru"/>
                         <outlet property="tableView" destination="bzX-61-V1n" id="4KY-Vu-0Br"/>

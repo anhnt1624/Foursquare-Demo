@@ -14,15 +14,12 @@
 		584FA577206560D900965EB7 /* FoursquareAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584FA574206560D900965EB7 /* FoursquareAuthViewController.swift */; };
 		584FA578206560D900965EB7 /* FoursquareAuthClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584FA575206560D900965EB7 /* FoursquareAuthClient.swift */; };
 		584FA579206560D900965EB7 /* FoursquareAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584FA576206560D900965EB7 /* FoursquareAPIClient.swift */; };
-		5855D99220674CD9008E0AF5 /* ResponseDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5855D99120674CD9008E0AF5 /* ResponseDetail.swift */; };
 		5855D99420674E91008E0AF5 /* ResponseJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5855D99320674E91008E0AF5 /* ResponseJson.swift */; };
 		5855D99C20675118008E0AF5 /* FoursquareManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5855D99820675117008E0AF5 /* FoursquareManager.swift */; };
 		5855D99D20675118008E0AF5 /* VenueModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5855D99A20675117008E0AF5 /* VenueModel.swift */; };
 		5855D99E20675118008E0AF5 /* DetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5855D99B20675117008E0AF5 /* DetailModel.swift */; };
-		5855D9A02067517E008E0AF5 /* ResponseVenue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5855D99F2067517E008E0AF5 /* ResponseVenue.swift */; };
 		5855D9A220676F98008E0AF5 /* RecommendModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5855D9A120676F98008E0AF5 /* RecommendModel.swift */; };
 		5855D9A420677120008E0AF5 /* TipModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5855D9A320677120008E0AF5 /* TipModel.swift */; };
-		5855D9A6206771F9008E0AF5 /* ResponseRecommend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5855D9A5206771F9008E0AF5 /* ResponseRecommend.swift */; };
 		58F8F0F92064B0ED005ECDE9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F8F0F42064B0ED005ECDE9 /* AppDelegate.swift */; };
 		58F8F0FB2064B0ED005ECDE9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F8F0F72064B0ED005ECDE9 /* ViewController.swift */; };
 		942A7B7E2BD8D151C7BABF26 /* Pods_NTA_Demo_Foursquare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81D81F3EDE6730C2249CB39B /* Pods_NTA_Demo_Foursquare.framework */; };
@@ -40,15 +37,12 @@
 		584FA574206560D900965EB7 /* FoursquareAuthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoursquareAuthViewController.swift; sourceTree = "<group>"; };
 		584FA575206560D900965EB7 /* FoursquareAuthClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoursquareAuthClient.swift; sourceTree = "<group>"; };
 		584FA576206560D900965EB7 /* FoursquareAPIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoursquareAPIClient.swift; sourceTree = "<group>"; };
-		5855D99120674CD9008E0AF5 /* ResponseDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseDetail.swift; sourceTree = "<group>"; };
 		5855D99320674E91008E0AF5 /* ResponseJson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseJson.swift; sourceTree = "<group>"; };
 		5855D99820675117008E0AF5 /* FoursquareManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoursquareManager.swift; sourceTree = "<group>"; };
 		5855D99A20675117008E0AF5 /* VenueModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VenueModel.swift; sourceTree = "<group>"; };
 		5855D99B20675117008E0AF5 /* DetailModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailModel.swift; sourceTree = "<group>"; };
-		5855D99F2067517E008E0AF5 /* ResponseVenue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseVenue.swift; sourceTree = "<group>"; };
 		5855D9A120676F98008E0AF5 /* RecommendModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendModel.swift; sourceTree = "<group>"; };
 		5855D9A320677120008E0AF5 /* TipModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipModel.swift; sourceTree = "<group>"; };
-		5855D9A5206771F9008E0AF5 /* ResponseRecommend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseRecommend.swift; sourceTree = "<group>"; };
 		58F8F0F42064B0ED005ECDE9 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		58F8F0F52064B0ED005ECDE9 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		58F8F0F72064B0ED005ECDE9 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -152,9 +146,6 @@
 		584FA584206567CE00965EB7 /* Response */ = {
 			isa = PBXGroup;
 			children = (
-				5855D9A5206771F9008E0AF5 /* ResponseRecommend.swift */,
-				5855D99120674CD9008E0AF5 /* ResponseDetail.swift */,
-				5855D99F2067517E008E0AF5 /* ResponseVenue.swift */,
 				5855D99320674E91008E0AF5 /* ResponseJson.swift */,
 			);
 			path = Response;
@@ -359,9 +350,6 @@
 				58F8F0FB2064B0ED005ECDE9 /* ViewController.swift in Sources */,
 				584FA577206560D900965EB7 /* FoursquareAuthViewController.swift in Sources */,
 				5855D99C20675118008E0AF5 /* FoursquareManager.swift in Sources */,
-				5855D9A02067517E008E0AF5 /* ResponseVenue.swift in Sources */,
-				5855D99220674CD9008E0AF5 /* ResponseDetail.swift in Sources */,
-				5855D9A6206771F9008E0AF5 /* ResponseRecommend.swift in Sources */,
 				5855D99420674E91008E0AF5 /* ResponseJson.swift in Sources */,
 				584E8A6B2066523D007671EE /* MapViewController.swift in Sources */,
 				584FA579206560D900965EB7 /* FoursquareAPIClient.swift in Sources */,
