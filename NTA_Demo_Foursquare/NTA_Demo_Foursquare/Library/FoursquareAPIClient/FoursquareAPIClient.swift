@@ -128,6 +128,7 @@ public class FoursquareAPIClient {
             request.httpBody = buildQueryString(fromDictionary: parameter).data(using: String.Encoding.utf8)
         } else {
             let urlString = kAPIBaseURLString + path + "?" + buildQueryString(fromDictionary: parameter)
+            print("Success URL: ", urlString)
             guard let url = URL(string: urlString as String) else {
                 print("Invalid URL: ", urlString)
                 return

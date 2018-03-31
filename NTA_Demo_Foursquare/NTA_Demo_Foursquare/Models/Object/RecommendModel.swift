@@ -21,8 +21,8 @@ struct RecommendModel : Decodable {
 }
 
 struct Item : Decodable {
-    let tips: [ItemTip]?
-    let venue: DetailModel?
+    var tips: [ItemTip]?
+    var venue: DetailModel?
     
     private enum CodingKeys : String, CodingKey {
         case tips

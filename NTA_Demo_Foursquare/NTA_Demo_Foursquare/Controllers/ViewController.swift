@@ -44,7 +44,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITabBarDeleg
         searchBar.resignFirstResponder()
     }
     
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if isLocationInitialized {
             FoursquareManager.sharedManager().searchVenuesWithCoordinate((userLocation?.coordinate)!, query: searchBar.text!, limit: "50", completion: {
                 [weak self] (error) in
@@ -54,6 +54,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITabBarDeleg
                 self?.tableView.reloadData()
             })
         }
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        
     }
     
     // MARK: - CLLocationManager delegate

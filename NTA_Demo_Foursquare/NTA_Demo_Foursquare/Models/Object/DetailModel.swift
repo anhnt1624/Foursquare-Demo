@@ -71,9 +71,9 @@ struct GroupsPhoto: Decodable {
 }
 
 struct ItemsPhoto: Decodable {
-    let idItemsPhoto: String?
-    let prefix: String?
-    let suffix: String?
+    var idItemsPhoto: String? = ""
+    var prefix: String? = ""
+    var suffix: String? = ""
     
     var photoUrl: String {
         return String(format: "%@%@%@", prefix!, "300x150", suffix!)

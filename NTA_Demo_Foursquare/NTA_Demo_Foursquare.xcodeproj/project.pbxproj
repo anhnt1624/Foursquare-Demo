@@ -20,6 +20,8 @@
 		5855D99E20675118008E0AF5 /* DetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5855D99B20675117008E0AF5 /* DetailModel.swift */; };
 		5855D9A220676F98008E0AF5 /* RecommendModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5855D9A120676F98008E0AF5 /* RecommendModel.swift */; };
 		5855D9A420677120008E0AF5 /* TipModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5855D9A320677120008E0AF5 /* TipModel.swift */; };
+		588B7D34206CD47600632459 /* DetailVenueController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 588B7D33206CD47600632459 /* DetailVenueController.swift */; };
+		58DC6EB3206F669800BD88F3 /* MyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58DC6EB2206F669800BD88F3 /* MyCollectionViewCell.swift */; };
 		58F8F0F92064B0ED005ECDE9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F8F0F42064B0ED005ECDE9 /* AppDelegate.swift */; };
 		58F8F0FB2064B0ED005ECDE9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F8F0F72064B0ED005ECDE9 /* ViewController.swift */; };
 		942A7B7E2BD8D151C7BABF26 /* Pods_NTA_Demo_Foursquare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81D81F3EDE6730C2249CB39B /* Pods_NTA_Demo_Foursquare.framework */; };
@@ -43,6 +45,8 @@
 		5855D99B20675117008E0AF5 /* DetailModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailModel.swift; sourceTree = "<group>"; };
 		5855D9A120676F98008E0AF5 /* RecommendModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendModel.swift; sourceTree = "<group>"; };
 		5855D9A320677120008E0AF5 /* TipModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipModel.swift; sourceTree = "<group>"; };
+		588B7D33206CD47600632459 /* DetailVenueController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVenueController.swift; sourceTree = "<group>"; };
+		58DC6EB2206F669800BD88F3 /* MyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCollectionViewCell.swift; sourceTree = "<group>"; };
 		58F8F0F42064B0ED005ECDE9 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		58F8F0F52064B0ED005ECDE9 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		58F8F0F72064B0ED005ECDE9 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -173,6 +177,7 @@
 		58F8F0F22064B0ED005ECDE9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				58DC6EB2206F669800BD88F3 /* MyCollectionViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -193,6 +198,7 @@
 			children = (
 				58F8F0F72064B0ED005ECDE9 /* ViewController.swift */,
 				584E8A6A2066523D007671EE /* MapViewController.swift */,
+				588B7D33206CD47600632459 /* DetailVenueController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -312,10 +318,12 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-NTA_Demo_Foursquare/Pods-NTA_Demo_Foursquare-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/DTPhotoViewerController/DTPhotoViewerController.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DTPhotoViewerController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -353,8 +361,10 @@
 				5855D99420674E91008E0AF5 /* ResponseJson.swift in Sources */,
 				584E8A6B2066523D007671EE /* MapViewController.swift in Sources */,
 				584FA579206560D900965EB7 /* FoursquareAPIClient.swift in Sources */,
+				58DC6EB3206F669800BD88F3 /* MyCollectionViewCell.swift in Sources */,
 				58F8F0F92064B0ED005ECDE9 /* AppDelegate.swift in Sources */,
 				5855D9A220676F98008E0AF5 /* RecommendModel.swift in Sources */,
+				588B7D34206CD47600632459 /* DetailVenueController.swift in Sources */,
 				5855D99D20675118008E0AF5 /* VenueModel.swift in Sources */,
 				584FA578206560D900965EB7 /* FoursquareAuthClient.swift in Sources */,
 			);

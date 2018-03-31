@@ -4,4 +4,5 @@ use_frameworks!
 
 target 'NTA_Demo_Foursquare' do
   pod 'SDWebImage'
+  pod 'DTPhotoViewerController'
 end

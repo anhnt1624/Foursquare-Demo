@@ -60,7 +60,6 @@ class FoursquareManager: NSObject {
             "ll": "\(coordinate.latitude),\(coordinate.longitude)",
             "limit": limit,
             "near": "",
-            "venuePhotos": "1",
             ];
 
         client.request(path: "venues/explore", parameter: parameter) {
