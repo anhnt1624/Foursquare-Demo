@@ -53,9 +53,6 @@ struct Stats: Decodable {
 
 struct BeenHere: Decodable {
     let count: Int?
-    let unconfirmedCount: Int?
-    let marked: Int?
-    let lastCheckinExpiredAt: Int?
 }
 
 struct Photo: Decodable {

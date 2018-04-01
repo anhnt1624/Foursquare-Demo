@@ -53,17 +53,41 @@ class FoursquareManager: NSObject {
         }
     }
     
-    func searchVenuesRecommend(_ coordinate: CLLocationCoordinate2D, limit: String, completion: ((RecommendModel?, Error?) -> ())?) {
+    func searchVenuesSimilar(_ idVenue: String, categoryName: String, completion: ((RecommendModel?, Error?) -> ())?) {
         let client = FoursquareAPIClient(clientId: clientId, clientSecret: clientSecret)
 
+        let parameter: [String: String] = [
+            "VENUE_ID": idVenue,
+            ];
+
+        client.request(path: "venues/\(idVenue)/similar", parameter: parameter) {
+        result in
+            switch result {
+            case let .success(data):
+                let decoder: JSONDecoder = JSONDecoder()
+                do {
+                    let response = try decoder.decode(ResponseJson<ResponseRecommend>.self, from: data)
+                    completion?(response.response.groups[0], nil)
+                } catch {
+                    completion?(nil, error)
+                }
+            case let .failure(error):
+                completion?(nil, error)
+            }
+        }
+    }
+    
+    func searchVenuesRecommend(_ coordinate: CLLocationCoordinate2D, limit: String, completion: ((RecommendModel?, Error?) -> ())?) {
+        let client = FoursquareAPIClient(clientId: clientId, clientSecret: clientSecret)
+        
         let parameter: [String: String] = [
             "ll": "\(coordinate.latitude),\(coordinate.longitude)",
             "limit": limit,
             "near": "",
             ];
-
+        
         client.request(path: "venues/explore", parameter: parameter) {
-        result in
+            result in
             switch result {
             case let .success(data):
                 let decoder: JSONDecoder = JSONDecoder()

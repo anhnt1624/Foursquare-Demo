@@ -46,19 +46,31 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITabBarDeleg
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if isLocationInitialized {
-            FoursquareManager.sharedManager().searchVenuesWithCoordinate((userLocation?.coordinate)!, query: searchBar.text!, limit: "50", completion: {
-                [weak self] (error) in
-                
-                UIApplication.shared.isNetworkActivityIndicatorVisible = false
-                
-                self?.tableView.reloadData()
-            })
+            NSObject.cancelPreviousPerformRequests(withTarget: self)
+            perform(#selector(searchAutoComplete), with: searchText, afterDelay: 0.2)
         }
     }
     
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        
+    @objc func searchAutoComplete(_ searchText: String) {
+        let trimmedString = searchText.trimmingCharacters(in: CharacterSet.whitespaces)
+        NSObject.cancelPreviousPerformRequests(withTarget: self)
+        perform(#selector(searchWithKey), with: trimmedString, afterDelay: 0.2)
     }
+    
+    @objc func searchWithKey(_ searchText: String) {
+        DispatchQueue.global(qos: .userInitiated).async {
+            DispatchQueue.main.async {
+                if (searchText.count >= 2) {
+                    FoursquareManager.sharedManager().searchVenuesWithCoordinate((self.userLocation?.coordinate)!, query: searchText, limit: "50", completion: {
+                        [weak self] (error) in
+                        UIApplication.shared.isNetworkActivityIndicatorVisible = false
+                        self?.tableView.reloadData()
+                    })
+                }
+            }
+        }
+    }
+    
     
     // MARK: - CLLocationManager delegate
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {

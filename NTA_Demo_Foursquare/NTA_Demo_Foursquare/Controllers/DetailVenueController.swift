@@ -25,7 +25,7 @@ class DetailVenueController: UIViewController, UITableViewDelegate, UITableViewD
         super.viewDidLoad()
         
         screenWidth = UIScreen.main.bounds.width
-        self.title = "Detail Venue"
+        self.title = "Tips & Photos"
         
         // Setup table view
         self.tblView.register(UITableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
@@ -54,7 +54,7 @@ class DetailVenueController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell:UITableViewCell = self.tblView.dequeueReusableCell(withIdentifier: cellReuseIdentifier) as UITableViewCell!
+        let cell:UITableViewCell = (self.tblView.dequeueReusableCell(withIdentifier: cellReuseIdentifier) as UITableViewCell?)!
         if let tips = detailModel.tips {
             if (tips.groups?.isEmpty == false) {
                 if let item = tips.groups?[0].items {

@@ -10,10 +10,18 @@ import UIKit
 import MapKit
 import CoreLocation
 
-class MapViewController: UIViewController, MKMapViewDelegate {
+
+extension CLLocationCoordinate2D {
+    func isEqual(_ coord: CLLocationCoordinate2D) -> Bool {
+        return (fabs(self.latitude - coord.latitude) < 0.01) && (fabs(self.longitude - coord.longitude) < 0.01)
+    }
+}
+
+class MapViewController: UIViewController, MKMapViewDelegate, UIGestureRecognizerDelegate {
     
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var viewInfo: UIView!
+    @IBOutlet weak var btnMore: UIButton!
     
     @IBOutlet weak var lblNameVenue: UILabel!
     @IBOutlet weak var lblAddressVenue: UILabel!
@@ -21,6 +29,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     @IBOutlet weak var lblPhoneVenue: UILabel!
     @IBOutlet weak var lblBeenHereVenue: UILabel!
     
+    var currentLocation: CLLocationCoordinate2D?
     var venueModel = VenueModel()
     var detailModel = DetailModel()
     var itemVenue = Item()
@@ -37,27 +46,33 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         mapView.showsUserLocation = true
         viewInfo.isHidden = true;
         self.loadDetailVenue(venueModel.idVenue)
-        self.loadDataRecommend()
+        self.currentLocation = (CLLocationCoordinate2DMake((venueModel.location?.latitude)!, (venueModel.location?.longitude)!))
+        self.loadDataRecommend(currentLocation!)
     }
     
-    func loadDataRecommend() {
-        FoursquareManager.sharedManager().searchVenuesRecommend(CLLocationCoordinate2DMake((venueModel.location?.latitude)!, (venueModel.location?.longitude)!), limit: "10", completion: {
+    func loadDataRecommend(_ coordinate: CLLocationCoordinate2D) {
+        FoursquareManager.sharedManager().searchVenuesRecommend(coordinate, limit: "10", completion: {
             [weak self] recommend, error in
-            self?.arrayVenue = (recommend?.items)!
-            self?.loadVenueRecommend()
+            if recommend != nil {
+                self?.arrayVenue = (recommend?.items)!
+                self?.loadVenueRecommend()
+            }
         })
     }
     
     func loadDetailVenue(_ idVenue: String) {
         FoursquareManager.sharedManager().getDetailVenue(idVenue, completion: {
             [weak self] detail, error in
-            self?.displayMarkersWithModel(detail!)
+            if let obj = detail {
+                self?.displayMarkersWithModel(obj)
+                self?.focusMapView(obj)
+            }
         })
     }
     
     func focusMapView(_ detailVenue: DetailModel) {
         let mapCenter = CLLocationCoordinate2DMake((detailVenue.location?.latitude)!, (detailVenue.location?.longitude)!)
-        let span = MKCoordinateSpanMake(0.1, 0.1)
+        let span = MKCoordinateSpanMake(0.15, 0.15)
         let region = MKCoordinateRegionMake(mapCenter, span)
         mapView.region = region
     }
@@ -80,33 +95,34 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         annotation.subtitle = detailVenue.location?.address
 
         mapView.addAnnotation(annotation)
-        self.focusMapView(detailVenue)
     }
     
     // MARK: - MapView delegate
     
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         if control == view.rightCalloutAccessoryView {
-            viewInfo.isHidden = false;
+            viewInfo.isHidden = false
+            btnMore.isEnabled = false
             for venue in self.arrayVenue {
                 if venue.venue?.name == (view.annotation?.title)! {
+                    let textTitle = venue.venue?.name
+                    if let textTitle = textTitle, !textTitle.isEmpty {
+                        self.lblNameVenue.text = textTitle
+                    }
+                    let address = venue.venue?.location?.address
+                    if let address = address, !address.isEmpty {
+                        self.lblAddressVenue.text = address
+                    } else {
+                        self.lblAddressVenue.text = ""
+                    }
                     FoursquareManager.sharedManager().getDetailVenue((venue.venue?.idVenue)!, completion: {
                         [weak self] detail, error in
-                        let textTitle = detail?.name
-                        if let textTitle = textTitle, !textTitle.isEmpty {
-                            self?.lblNameVenue.text = textTitle
-                        }
+                        self?.btnMore.isEnabled = true
                         let phone = detail?.contact?.phone
                         if let phone = phone, !phone.isEmpty {
                             self?.lblPhoneVenue.text = "Phone : \(phone)"
                         } else {
                             self?.lblPhoneVenue.text = ""
-                        }
-                        let address = venue.venue?.location?.address
-                        if let address = address, !address.isEmpty {
-                            self?.lblAddressVenue.text = address
-                        } else {
-                            self?.lblAddressVenue.text = ""
                         }
                         let rating = detail?.rating
                         if let rating = rating, rating > 0 {
@@ -146,6 +162,14 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         pinView?.rightCalloutAccessoryView = button
         
         return pinView
+    }
+    
+    func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
+        if !(self.currentLocation?.isEqual(self.mapView.centerCoordinate))! {
+            self.mapView.removeAnnotations(mapView.annotations)
+            self.loadDataRecommend(mapView.centerCoordinate)
+            self.currentLocation = mapView.centerCoordinate
+        }
     }
     
     @IBAction func didTapCloseButton(_ sender: AnyObject) {
